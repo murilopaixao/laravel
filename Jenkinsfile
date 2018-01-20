@@ -27,6 +27,6 @@ node('php'){
     }
     
     stage('Docker Ship') {
-        sh 'docker push murilopaixao/api:$BUILD_NUMBER'
+        sh 'docker push murilopaixao2/api:$BUILD_NUMBER'
     }
 }
