@@ -15,18 +15,18 @@ node('php'){
     stage('config') {
         parallel(
             'config cache': {
-                echo 'Tarefa Paralela'
+                echo 'Tarefa Paralela 01'
             },
             'config route': {
-                sh 'php artisan'
+                echo 'Tarefa Paralela 02'
             }
         )
     }
     stage('Docker Build') {
-        sh 'docker build -t murilopaixao2/api:$BUILD_NUMBER .'
+        sh 'docker build -t murilopaixao2/laravel:$BUILD_NUMBER .'
     }
     
     stage('Docker Ship') {
-        sh 'docker push murilopaixao2/api:$BUILD_NUMBER'
+        sh 'docker push murilopaixao2/laravel:$BUILD_NUMBER'
     }
 }
